@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="LUMINA — Visual Stories. A curated, responsive photography gallery web application built for CodeAlpha Frontend Development Internship Task 1. Explore fine art, nature, architecture, and human moments.">
+  <meta name="keywords" content="photography, image gallery, lumina, codealpha, frontend, html5, css3, javascript, masonry layout, lightbox">
+  <meta name="author" content="CodeAlpha Intern">
+  <title>LUMINA — Visual Stories | Fine Art Photography Gallery</title>
+
+  <!-- Google Fonts Preconnect & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Accessible Skip Navigation Link -->
+  <a href="#gallery" class="skip-link">Skip to Gallery</a>
+
+  <!-- Toast Notification System Container -->
+  <div id="toastContainer" class="toast-container" aria-live="polite" aria-atomic="true"></div>
+
+  <!-- Sticky Responsive Header Navigation -->
+  <header class="main-header" id="header">
+    <div class="header-container">
+      <a href="#" class="brand-logo" aria-label="LUMINA Home">
+        <span class="logo-mark">L</span>
+        <div class="logo-text">
+          <span class="brand-name">LUMINA</span>
+          <span class="brand-tagline">Visual Stories</span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav class="desktop-nav" aria-label="Main Navigation">
+        <ul class="nav-list">
+          <li><a href="#hero" class="nav-link active">Home</a></li>
+          <li><a href="#gallery" class="nav-link">Gallery</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#footer" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Quick Favorites Counter Badge -->
+      <div class="header-actions">
+        <button id="headerFavBtn" class="header-fav-btn" title="View Saved Favorites" aria-label="View Favorites">
+          <svg class="heart-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+            <path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+          </svg>
+          <span class="fav-badge-count" id="headerFavCount">0</span>
+        </button>
+
+        <!-- Mobile Menu Toggle Button -->
+        <button id="mobileMenuBtn" class="mobile-menu-btn" aria-expanded="false" aria-controls="mobileDrawer" aria-label="Toggle Mobile Menu">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobileDrawer" class="mobile-drawer" aria-hidden="true">
+      <nav class="mobile-nav" aria-label="Mobile Navigation">
+        <ul>
+          <li><a href="#hero" class="mobile-nav-link">Home</a></li>
+          <li><a href="#gallery" class="mobile-nav-link">Gallery</a></li>
+          <li><a href="#about" class="mobile-nav-link">About</a></li>
+          <li><a href="#footer" class="mobile-nav-link">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="hero-backdrop">
+        <div class="hero-bg-overlay"></div>
+        <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=2000&q=85" alt="Cinematic Mountain Landscape Hero" class="hero-bg-image" id="heroBgImage">
+      </div>
+
+      <div class="hero-content">
+        <div class="eyebrow-badge">
+          <span class="eyebrow-dot"></span>
+          <span class="eyebrow-text">CURATED VISUAL STORIES</span>
+        </div>
+        <h1 class="hero-title">
+          Every frame<br>
+          <span class="title-highlight">tells a story.</span>
+        </h1>
+        <p class="hero-subtitle">
+          Explore a carefully curated collection of landscapes, architecture, nature, travel and human moments captured through extraordinary lenses.
+        </p>
+        <div class="hero-cta-wrapper">
+          <a href="#gallery" class="btn-primary btn-hero" id="heroCtaBtn">
+            <span>Explore Gallery</span>
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+            </svg>
+          </a>
+          <div class="hero-stats-mini">
+            <span class="stats-num">24+</span>
+            <span class="stats-lbl">Exhibits</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-scroll-indicator">
+        <span class="scroll-mouse">
+          <span class="scroll-wheel"></span>
+        </span>
+      </div>
+    </section>
+
+    <!-- Main Gallery Section -->
+    <section class="gallery-section" id="gallery">
+      <div class="gallery-container">
+        
+        <!-- Controls & Filter Toolbar -->
+        <div class="gallery-header-bar">
+          <div class="gallery-title-group">
+            <h2 class="gallery-section-title">Curated Collection</h2>
+            <div class="gallery-count-badge" id="galleryCountBadge">Showing 24 of 24 photographs</div>
+          </div>
+
+          <!-- Controls Wrapper (Search, Categories, Sorting) -->
+          <div class="controls-wrapper">
+            <!-- Search Bar -->
+            <div class="search-box">
+              <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+              </svg>
+              <input type="text" id="searchInput" class="search-input" placeholder="Search title, location, category, photographer..." aria-label="Search gallery images">
+              <button id="searchClearBtn" class="search-clear-btn" aria-label="Clear search" hidden>✕</button>
+            </div>
+
+            <!-- Sorting Selector -->
+            <div class="sort-box">
+              <label for="sortSelect" class="sort-label">Sort:</label>
+              <div class="select-custom-wrapper">
+                <select id="sortSelect" class="sort-select" aria-label="Sort images by">
+                  <option value="featured">Featured First</option>
+                  <option value="az">Title: A → Z</option>
+                  <option value="za">Title: Z → A</option>
+                  <option value="newest">Newest Added</option>
+                </select>
+                <svg class="select-arrow" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true">
+                  <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Category Filter Navigation Pills -->
+        <div class="filter-pills-scroll">
+          <div class="filter-pills" id="filterPills" role="tablist" aria-label="Image Categories">
+            <button class="filter-btn active" data-category="all" role="tab" aria-selected="true">All</button>
+            <button class="filter-btn" data-category="Nature" role="tab" aria-selected="false">Nature</button>
+            <button class="filter-btn" data-category="Architecture" role="tab" aria-selected="false">Architecture</button>
+            <button class="filter-btn" data-category="Travel" role="tab" aria-selected="false">Travel</button>
+            <button class="filter-btn" data-category="Portraits" role="tab" aria-selected="false">Portraits</button>
+            <button class="filter-btn" data-category="Wildlife" role="tab" aria-selected="false">Wildlife</button>
+            <button class="filter-btn" data-category="Urban" role="tab" aria-selected="false">Urban</button>
+            <button class="filter-btn filter-btn-fav" data-category="favorites" role="tab" aria-selected="false">
+              <span>♥ Favorites</span>
+              <span class="fav-count-pill" id="favCountPill">0</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Dynamic Gallery Grid Container -->
+        <div id="galleryGrid" class="gallery-grid" aria-live="polite">
+          <!-- Dynamically Populated by script.js -->
+        </div>
+
+        <!-- Empty Results Fallback Container -->
+        <div id="emptyState" class="empty-state" hidden>
+          <div class="empty-icon-wrapper">
+            <svg viewBox="0 0 24 24" width="48" height="48" aria-hidden="true">
+              <path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/>
+            </svg>
+          </div>
+          <h3 class="empty-title">No photographs match your query</h3>
+          <p class="empty-desc">Try searching for a different keyword or select another category filter.</p>
+          <button id="resetFiltersBtn" class="btn-primary btn-reset">Reset All Filters</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- About Section & Counter Statistics -->
+    <section class="about-section" id="about">
+      <div class="about-container">
+        <div class="about-grid">
+          <div class="about-text-col">
+            <span class="section-tag">ABOUT LUMINA</span>
+            <h2 class="about-heading">A collection of moments preserved in time.</h2>
+            <p class="about-lead">
+              LUMINA was created as an immersive visual catalog dedicated to celebrating the synergy between human emotion, raw natural beauty, and architectural mastery.
+            </p>
+            <p class="about-body">
+              Every photographs in our gallery is carefully curated to evoke wonder, solitude, and inspiration. We provide artists and enthusiasts a space to observe world stories framed in silence.
+            </p>
+          </div>
+
+          <!-- Animated Stat Counters -->
+          <div class="about-stats-grid" id="statsGrid">
+            <div class="stat-card">
+              <span class="stat-number" data-target="24">0</span>
+              <span class="stat-plus">+</span>
+              <span class="stat-label">Photographs</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" data-target="7">0</span>
+              <span class="stat-plus"></span>
+              <span class="stat-label">Categories</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" data-target="12">0</span>
+              <span class="stat-plus"></span>
+              <span class="stat-label">Locations</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number" data-target="8">0</span>
+              <span class="stat-plus"></span>
+              <span class="stat-label">Photographers</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Full-Screen Lightbox Viewer Modal -->
+  <div id="lightboxModal" class="lightbox-modal" aria-modal="true" role="dialog" aria-label="Image Lightbox Viewer" hidden>
+    <div class="lightbox-backdrop" id="lightboxBackdrop"></div>
+
+    <div class="lightbox-content-wrapper">
+      <!-- Lightbox Header Controls -->
+      <div class="lightbox-toolbar">
+        <div class="lightbox-counter" id="lightboxCounter">01 / 24</div>
+        <div class="lightbox-actions">
+          <button id="lightboxFavBtn" class="lightbox-action-btn" title="Toggle Favorite" aria-label="Favorite Image">
+            <svg class="heart-icon" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+            </svg>
+          </button>
+          <button id="lightboxFullscreenBtn" class="lightbox-action-btn" title="Toggle Fullscreen" aria-label="Toggle Fullscreen">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3"/>
+            </svg>
+          </button>
+          <button id="lightboxShareBtn" class="lightbox-action-btn" title="Share Image" aria-label="Share Image">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"/>
+            </svg>
+          </button>
+          <button id="lightboxDownloadBtn" class="lightbox-action-btn" title="Download Image" aria-label="Download Image">
+            <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+              <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+            </svg>
+          </button>
+          <button id="lightboxCloseBtn" class="lightbox-close-btn" title="Close Lightbox (Esc)" aria-label="Close Lightbox">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+              <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Main Lightbox Image Stage -->
+      <div class="lightbox-stage">
+        <!-- Navigation Buttons -->
+        <button id="lightboxPrevBtn" class="lightbox-nav-btn prev-btn" aria-label="Previous Image (Left Arrow)">
+          <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+            <path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+          </svg>
+        </button>
+
+        <div class="lightbox-img-container">
+          <div class="lightbox-spinner" id="lightboxSpinner"></div>
+          <img src="" alt="" id="lightboxImg" class="lightbox-img">
+        </div>
+
+        <button id="lightboxNextBtn" class="lightbox-nav-btn next-btn" aria-label="Next Image (Right Arrow)">
+          <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true">
+            <path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Lightbox Caption & Meta Details Footer -->
+      <div class="lightbox-meta-panel">
+        <div class="lightbox-meta-header">
+          <span class="lightbox-category-tag" id="lightboxCategory">Category</span>
+          <span class="lightbox-location" id="lightboxLocation">Location</span>
+        </div>
+        <h3 class="lightbox-title" id="lightboxTitle">Image Title</h3>
+        <p class="lightbox-desc" id="lightboxDesc">Description text goes here.</p>
+        <div class="lightbox-photographer-tag">
+          Photo by <span id="lightboxPhotographer" class="photographer-name">Photographer</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Back to Top Button -->
+  <button id="backToTopBtn" class="back-to-top-btn" aria-label="Scroll to top" title="Back to top">
+    <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+      <path fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <!-- Footer -->
+  <footer class="main-footer" id="footer">
+    <div class="footer-container">
+      <div class="footer-brand-col">
+        <a href="#" class="footer-logo">LUMINA</a>
+        <p class="footer-tagline">Visual stories, thoughtfully curated.</p>
+        <p class="footer-copy">CodeAlpha Frontend Development Internship — Task 1: Image Gallery Application.</p>
+      </div>
+      <div class="footer-links-col">
+        <h4 class="footer-heading">Navigation</h4>
+        <ul>
+          <li><a href="#hero">Home</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#about">About</a></li>
+        </ul>
+      </div>
+      <div class="footer-social-col">
+        <h4 class="footer-heading">Connect</h4>
+        <div class="social-links">
+          <a href="#" class="social-btn" aria-label="GitHub Repository" title="GitHub">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="LinkedIn Profile" title="LinkedIn">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg>
+          </a>
+          <a href="#" class="social-btn" aria-label="Portfolio Web" title="Portfolio">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 100 20 10 10 0 000-20zM2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-container">
+        <span>© 2026 LUMINA Visual Stories. All rights reserved.</span>
+        <span>Built with HTML5, Vanilla CSS3 & ES6 JavaScript</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
