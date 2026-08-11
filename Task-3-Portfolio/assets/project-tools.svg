@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#180e04"/>
+      <stop offset="100%" stop-color="#2e1b07"/>
+    </linearGradient>
+    <linearGradient id="amberGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#ef4444"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="380" fill="url(#bgGrad)"/>
+
+  <rect x="35" y="30" width="530" height="320" rx="16" fill="#241405" stroke="#f59e0b" stroke-width="1.5"/>
+
+  <!-- Header -->
+  <path d="M35 46 A16 16 0 0 1 51 30 H549 A16 16 0 0 1 565 30 V65 H35 Z" fill="#361f0a"/>
+  <text x="60" y="52" font-family="Space Grotesk, sans-serif" font-size="14" font-weight="700" fill="#ffffff">Digital Tools Suite — Web Utilities</text>
+
+  <!-- Tool 1: USDT Converter Card -->
+  <rect x="60" y="85" width="225" height="115" rx="10" fill="#3b220b" stroke="#f59e0b" stroke-width="1"/>
+  <text x="75" y="110" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700" fill="#f59e0b">USDT ↔ PKR Converter</text>
+  <rect x="75" y="125" width="195" height="28" rx="6" fill="#1f1105"/>
+  <text x="85" y="143" font-family="Inter, sans-serif" font-size="11" fill="#ffffff">100 USDT = <tspan fill="#4ade80" font-weight="700">27,850 PKR</tspan></text>
+  <text x="75" y="178" font-family="Inter, sans-serif" font-size="10" fill="#fbbf24">Live State Bank Rates API</text>
+
+  <!-- Tool 2: Media Downloader Card -->
+  <rect x="305" y="85" width="225" height="115" rx="10" fill="#3b220b" stroke="#ef4444" stroke-width="1"/>
+  <text x="320" y="110" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700" fill="#ec4899">Media Downloader</text>
+  <rect x="320" y="125" width="195" height="28" rx="6" fill="#1f1105"/>
+  <text x="330" y="143" font-family="Inter, sans-serif" font-size="10" fill="#94a3b8">Paste URL here...</text>
+  <rect x="445" y="128" width="65" height="22" rx="4" fill="#ec4899"/>
+  <text x="477" y="143" font-family="Inter, sans-serif" font-size="10" font-weight="700" fill="#fff" text-anchor="middle">Fetch</text>
+
+  <!-- Tool 3: Temp Email Service -->
+  <rect x="60" y="215" width="470" height="110" rx="10" fill="#331c07"/>
+  <text x="80" y="240" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700" fill="#38bdf8">Temporary Disposable Email Service</text>
+  <rect x="80" y="255" width="310" height="30" rx="6" fill="#1a0e03"/>
+  <text x="95" y="275" font-family="monospace" font-size="12" fill="#00f2fe">user_8912@techbyrash.tmp</text>
+  <rect x="400" y="255" width="130" height="30" rx="6" fill="#00f2fe"/>
+  <text x="465" y="275" font-family="Inter, sans-serif" font-size="11" font-weight="700" fill="#000" text-anchor="middle">Copy Address</text>
+</svg>

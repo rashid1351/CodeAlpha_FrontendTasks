@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 380" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#06121e"/>
+      <stop offset="100%" stop-color="#0a2540"/>
+    </linearGradient>
+    <linearGradient id="primaryGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00f2fe"/>
+      <stop offset="100%" stop-color="#38bdf8"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="600" height="380" fill="url(#bgGrad)"/>
+  
+  <!-- Dashboard Card Base -->
+  <rect x="40" y="30" width="520" height="320" rx="16" fill="#0d1b2a" stroke="#00f2fe" stroke-width="1.5" opacity="0.9"/>
+
+  <!-- Top Bar -->
+  <path d="M40 46 A16 16 0 0 1 56 30 H544 A16 16 0 0 1 560 30 V70 H40 Z" fill="#132a4a"/>
+  <text x="70" y="55" font-family="Space Grotesk, sans-serif" font-size="15" font-weight="700" fill="#ffffff">UACGS — Aggregate & University Recommender</text>
+
+  <!-- Left Stats Block -->
+  <rect x="70" y="90" width="220" height="110" rx="12" fill="#1b3a4b" stroke="#38bdf8" stroke-width="1"/>
+  <text x="90" y="120" font-family="Inter, sans-serif" font-size="12" fill="#94a3b8">Calculated Aggregate Score</text>
+  <text x="90" y="160" font-family="Space Grotesk, sans-serif" font-size="34" font-weight="800" fill="#00f2fe">88.75%</text>
+  <text x="90" y="185" font-family="Inter, sans-serif" font-size="11" fill="#4ade80">Eligible for Top 15 IT Programs</text>
+
+  <!-- Right Chart Block -->
+  <rect x="310" y="90" width="220" height="110" rx="12" fill="#1b3a4b"/>
+  <text x="330" y="115" font-family="Inter, sans-serif" font-size="12" fill="#94a3b8">Admission Probability</text>
+  <!-- Bar chart visual -->
+  <rect x="330" y="160" width="24" height="30" rx="4" fill="#38bdf8"/>
+  <rect x="365" y="140" width="24" height="50" rx="4" fill="#38bdf8"/>
+  <rect x="400" y="130" width="24" height="60" rx="4" fill="#00f2fe"/>
+  <rect x="435" y="150" width="24" height="40" rx="4" fill="#38bdf8"/>
+
+  <!-- Recommended Universities List -->
+  <rect x="70" y="220" width="460" height="110" rx="12" fill="#0f2338"/>
+  <text x="90" y="245" font-family="Space Grotesk, sans-serif" font-size="13" font-weight="700" fill="#ffffff">Recommended University Matches</text>
+  
+  <rect x="90" y="260" width="420" height="28" rx="6" fill="#17314d"/>
+  <text x="105" y="278" font-family="Inter, sans-serif" font-size="12" fill="#e2e8f0">1. University of Education Lahore — BS IT</text>
+  <text x="480" y="278" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="700" fill="#4ade80">98% Match</text>
+
+  <rect x="90" y="295" width="420" height="28" rx="6" fill="#17314d"/>
+  <text x="105" y="313" font-family="Inter, sans-serif" font-size="12" fill="#e2e8f0">2. National University of Sciences & Tech (NUST)</text>
+  <text x="480" y="313" font-family="Space Grotesk, sans-serif" font-size="12" font-weight="700" fill="#38bdf8">92% Match</text>
+</svg>
